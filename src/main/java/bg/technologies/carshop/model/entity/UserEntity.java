@@ -1,15 +1,11 @@
-package bg.technologies.carsshop.model.entity;
+package bg.technologies.carshop.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+@Table(name = "users")
+public class UserEntity extends BaseEntity {
+
 
     private String email;
 
@@ -21,14 +17,7 @@ public class UserEntity {
 
     private boolean active;
 
-    public long getId() {
-        return id;
-    }
 
-    public UserEntity setId(long id) {
-        this.id = id;
-        return this;
-    }
 
     public String getEmail() {
         return email;

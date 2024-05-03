@@ -1,4 +1,4 @@
-package bg.technologies.carsshop;
+package bg.technologies.carshop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

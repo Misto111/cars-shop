@@ -1,4 +1,4 @@
-package bg.technologies.carsshop.web;
+package bg.technologies.carshop.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
