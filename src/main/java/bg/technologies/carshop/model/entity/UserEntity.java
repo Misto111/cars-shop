@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "users")
 public class UserEntity extends BaseEntity {
 
-
+    @Column(unique = true)
     private String email;
 
     private String password;
@@ -16,7 +16,6 @@ public class UserEntity extends BaseEntity {
     private String lastName;
 
     private boolean active;
-
 
 
     public String getEmail() {
