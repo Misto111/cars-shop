@@ -2,9 +2,7 @@ package bg.technologies.carshop.service.impl;
 
 import bg.technologies.carshop.model.dto.BrandDTO;
 import bg.technologies.carshop.model.dto.ModelDTO;
-import bg.technologies.carshop.model.entity.ModelEntity;
 import bg.technologies.carshop.repository.BrandRepository;
-import bg.technologies.carshop.repository.ModelRepository;
 import bg.technologies.carshop.service.BrandService;
 import org.springframework.stereotype.Service;
 
@@ -16,9 +14,9 @@ public class BrandServiceImpl implements BrandService {
 
     private final BrandRepository brandRepository;
 
-    public BrandServiceImpl(BrandRepository brandRepository, BrandRepository brandRepository1) {
+    public BrandServiceImpl(BrandRepository brandRepository) {
 
-        this.brandRepository = brandRepository1;
+        this.brandRepository = brandRepository;
     }
 
     @Override

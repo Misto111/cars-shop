@@ -2,6 +2,7 @@ package bg.technologies.carshop.model.dto;
 
 import bg.technologies.carshop.model.enums.EngineEnum;
 import bg.technologies.carshop.model.enums.TransmissionEnum;
+import bg.technologies.carshop.model.validation.YearNotInTheFuture;
 import jakarta.validation.constraints.*;
 
 public record CreateOfferDTO(
@@ -32,6 +33,7 @@ public record CreateOfferDTO(
         @NotNull
         Integer price,
 
+        @YearNotInTheFuture(message = "The year should not be int the future!")
         @NotNull(message = "Year must be provided")
         @Min(1930)
         Integer year

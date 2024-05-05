@@ -6,13 +6,17 @@ import java.util.List;
 
 @Entity
 @Table(name = "brands")
+@NamedEntityGraph(  // дава описание на това ентити, като това описание има име и child релациите, които искаме да се дръпнат.
+        name = "brandWithModels",
+        attributeNodes = @NamedAttributeNode("models")  //задаваме името на атрибута, който искаме да бъде изтеглен
+)
 public class BrandEntity extends BaseEntity {
 
     @Column(unique = true, nullable = false)
     private String name;
 
     @OneToMany(
-            fetch = FetchType.LAZY,
+            fetch = FetchType.LAZY,   //вземи моделите само, когато е необходимо
             cascade = CascadeType.ALL,
             mappedBy = "brand"
     )
@@ -22,8 +26,8 @@ public class BrandEntity extends BaseEntity {
         return name;
     }
 
-    public BrandEntity setName(String brand) {
-        this.name = brand;
+    public BrandEntity setName(String name) {
+        this.name = name;
         return this;
     }
 
