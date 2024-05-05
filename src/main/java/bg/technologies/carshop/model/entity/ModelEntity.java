@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 @Table(name = "models")
 public class ModelEntity extends BaseEntity {
 
-    @Column(unique = true, nullable = false)
     private String name;
 
     @Enumerated(EnumType.STRING)
