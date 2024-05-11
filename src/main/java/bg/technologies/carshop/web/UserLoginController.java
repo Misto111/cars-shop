@@ -1,19 +1,13 @@
 package bg.technologies.carshop.web;
 
-import bg.technologies.carshop.model.dto.UserLoginDTO;
-import bg.technologies.carshop.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserLoginController {
-
-    private final UserService userService;
-
-    public UserLoginController(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping("/users/login")
     public String login() {
@@ -21,19 +15,15 @@ public class UserLoginController {
         return "auth-login";
 
     }
-    @PostMapping("/users/login")
-    public String login(UserLoginDTO userLoginDTO){
+    @PostMapping("/users/login-error")
+    public String onFailure(
+            @ModelAttribute("email") String email,
+            Model model) {
 
-        boolean loginSuccessful = userService.loginUser(userLoginDTO);
+        model.addAttribute("email", email);
+        model.addAttribute("bad_credentials", true);
 
-        return loginSuccessful ? "index" : "auth-login";
-
+        return "auth-login";
     }
-    @GetMapping("/users/logout")
-    public String logout() {
 
-        userService.logoutUser();
-
-        return "index";
-    }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="~{fragments/head}">
 </head>
@@ -10,11 +11,14 @@
     <nav th:replace="~{fragments/navbar}"></nav>
 </div>
 
-<div class="container-fluid"
-     th:unless="${@currentUser.isLogged()}">
-    <h5 class="text-center text-black mt-5">Welcome to Car Shop!
-        <th:block th:if="${@currentUser.isLogged()}" th:text=",${@currentUser.getFullName()}"></th:block>
-        <th:block th:unless="${@currentUser.isLogged()}"></th:block>
+<div class="container-fluid">
+    <h5 class="text-center text-black mt-5">
+        <th:block sec:authorize="isAuthenticated()">
+<!--            Welcome to Car Shop!-->
+<!--          <th:block sec:authentication=""></th:block>-->
+        </th:block>
+        <th:block sec:authorize="!isAuthenticated()">Welcome to Car Shop!</th:block>
+
 
     </h5>
 </div>

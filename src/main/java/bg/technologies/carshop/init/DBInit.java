@@ -9,7 +9,7 @@ public class DBInit implements CommandLineRunner {
 
     private final String defaultAdminPass;
 
-    public DBInit(@Value("${default.admin.pass}")String defaultAdminPass) {
+    public DBInit(@Value("${carshop.default.admin.pass}")String defaultAdminPass) {
         this.defaultAdminPass = defaultAdminPass;
     }
 

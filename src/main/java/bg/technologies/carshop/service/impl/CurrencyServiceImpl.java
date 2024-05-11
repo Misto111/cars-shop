@@ -28,7 +28,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     @Override
     public void refreshRates(ExchangeRatesDTO exchangeRatesDTO) {
 
-        LOGGER.info("Exhange rates received {}", exchangeRatesDTO);
+        LOGGER.info("Exchange rates received {}", exchangeRatesDTO);
 
         BigDecimal BGN_TO_USD = getExchangeRate(exchangeRatesDTO, "BGN", "USD").orElse(null);
         BigDecimal BGN_TO_EUR = getExchangeRate(exchangeRatesDTO, "BGN", "EUR").orElse(null);
