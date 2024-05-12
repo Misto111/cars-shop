@@ -1,7 +1,6 @@
 package bg.technologies.carshop.model.entity;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 

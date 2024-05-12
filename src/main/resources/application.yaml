@@ -34,3 +34,10 @@ open.exchange.rates:
   app_id: ${APP_ID:test}
   symbols: EUR,BGN
   enabled: false
+
+mail:
+  carshop: "carshop@bg.com"
+  host: localhost
+  port: 1025
+  username: ${MAIL_USER:12345}
+  password: ${MAIL_PASSWORD:12345}
