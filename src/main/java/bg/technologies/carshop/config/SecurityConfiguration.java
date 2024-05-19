@@ -4,6 +4,7 @@ import bg.technologies.carshop.model.enums.UserRoleEnum;
 import bg.technologies.carshop.repository.UserRepository;
 import bg.technologies.carshop.service.impl.SecurityUserDetailService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,9 +35,12 @@ public class SecurityConfiguration {
                 authorizeRequest -> authorizeRequest
                         // All static resources which are situated in js, images, css are available for anyone
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+                        .requestMatchers(EndpointRequest.toAnyEndpoint()).permitAll()
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         // Allow anyone to see the home page, the registration page and the login form
                         .requestMatchers("/", "/users/login", "/users/register", "/users/login-error").permitAll()
                         .requestMatchers("/offers/all").permitAll()
+                        .requestMatchers("/api/currency/convert").permitAll()
                         .requestMatchers(HttpMethod.GET, "/offer/**").permitAll()
                         .requestMatchers("/error").permitAll()
                         .requestMatchers("/brands").hasRole(UserRoleEnum.ADMIN.name())

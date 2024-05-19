@@ -16,7 +16,7 @@ import java.util.Random;
 @Service
 public class UserActivationServiceImpl implements UserActivationService {
 
-    private static final String ACTIVATION_CODE_SYMBOLS = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ0123456789";
+    private static final String ACTIVATION_CODE_SYMBOLS = "abcdefghijklmnopqrstuvwxyzABCDEFGJKLMNPRSTUVWXYZ0123456789 ";
     private static final int ACTIVATION_CODE_LENGTH = 20;
     private final EmailService emailService;
     private final UserRepository userRepository;

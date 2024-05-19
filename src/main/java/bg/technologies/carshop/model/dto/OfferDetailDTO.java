@@ -15,7 +15,8 @@ public record OfferDetailDTO(
         EngineEnum engine,
         TransmissionEnum transmission,
         String imageUrl,
-        String seller
+        String seller,
+        boolean viewerIsOwner
 ) {
     public String summary() {
         return brand + " " + model + ", " + year;

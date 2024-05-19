@@ -35,9 +35,20 @@ open.exchange.rates:
   symbols: EUR,BGN
   enabled: false
 
+  #http://localhost:8080/api/currency/convert?target=EUR&amount=1000
+
 mail:
   carshop: "carshop@bg.com"
   host: localhost
   port: 1025
   username: ${MAIL_USER:12345}
   password: ${MAIL_PASSWORD:12345}
+
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: "*"

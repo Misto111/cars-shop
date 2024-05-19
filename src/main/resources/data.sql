@@ -30,10 +30,10 @@ VALUES
     (4, 'CAR', 2, 'Fiesta'),
     (5, 'CAR', 3, 'Aventador');
 
-INSERT INTO `offers` (`id`, `description`, `engine`, `image_url`, `mileage`, `price`, `transmission`, `uuid`, `year`, `model_id`)
+INSERT INTO `offers` (`id`, `description`, `engine`, `image_url`, `mileage`, `price`, `transmission`, `uuid`, `year`, `model_id`, `seller_id`)
 VALUES
-    (1,	'Много бързо!',	'PETROL', 'https://www.motortrend.com/uploads/sites/5/2020/02/2020-Lamborghini-Aventador-SVJ-Roadster-32.jpg', '7', '7.00',	'AUTOMATIC', '553bce77-f50c-48b1-a3d3-29206f51ae8e', '2020', '5'),
-    (2,	'Много бързо!',	'PETROL', 'https://www.motortrend.com/uploads/sites/5/2020/02/2020-Lamborghini-Aventador-SVJ-Roadster-32.jpg', '7', '7.00',	'AUTOMATIC', '553bce77-f50c-48b1-a3d3-29206f51ae8e', '2021', '5'),
-    (3,	'Много бързо!',	'PETROL', 'https://www.motortrend.com/uploads/sites/5/2020/02/2020-Lamborghini-Aventador-SVJ-Roadster-32.jpg', '7', '7.00',	'AUTOMATIC', '553bce77-f50c-48b1-a3d3-29206f51ae8e', '2022', '5'),
-    (4,	'Много бързо!',	'PETROL', 'https://www.motortrend.com/uploads/sites/5/2020/02/2020-Lamborghini-Aventador-SVJ-Roadster-32.jpg', '7', '7.00',	'AUTOMATIC', '553bce77-f50c-48b1-a3d3-29206f51ae8e', '2023', '5'),
-    (5,	'Много бързо!',	'PETROL', 'https://www.motortrend.com/uploads/sites/5/2020/02/2020-Lamborghini-Aventador-SVJ-Roadster-32.jpg', '7', '7.00',	'AUTOMATIC', '553bce77-f50c-48b1-a3d3-29206f51ae8e', '2024', '5');
+    (1,	'Много бързо 1!',	'PETROL', 'https://www.motortrend.com/uploads/sites/5/2020/02/2020-Lamborghini-Aventador-SVJ-Roadster-32.jpg', 7, 7.00,	'AUTOMATIC', '553bce77-f50c-48b1-a3d3-29206f51ae81', 2020, 5, 1),
+    (2,	'Много бързо 2!',	'PETROL', 'https://www.motortrend.com/uploads/sites/5/2020/02/2020-Lamborghini-Aventador-SVJ-Roadster-32.jpg', 7, 7.00,	'AUTOMATIC', '553bce77-f50c-48b1-a3d3-29206f51ae82', 2021, 5, 2),
+    (3,	'Много бързо 3!',	'PETROL', 'https://www.motortrend.com/uploads/sites/5/2020/02/2020-Lamborghini-Aventador-SVJ-Roadster-32.jpg', 7, 7.00,	'AUTOMATIC', '553bce77-f50c-48b1-a3d3-29206f51ae83', 2022, 5, 2),
+    (4,	'Много бързо 4!',	'PETROL', 'https://www.motortrend.com/uploads/sites/5/2020/02/2020-Lamborghini-Aventador-SVJ-Roadster-32.jpg', 7, 7.00,	'AUTOMATIC', '553bce77-f50c-48b1-a3d3-29206f51ae84', 2023, 5, 1),
+    (5,	'Много бързо 5!',	'PETROL', 'https://www.motortrend.com/uploads/sites/5/2020/02/2020-Lamborghini-Aventador-SVJ-Roadster-32.jpg', 7, 7.00,	'AUTOMATIC', '553bce77-f50c-48b1-a3d3-29206f51ae85', 2024, 5, 2);

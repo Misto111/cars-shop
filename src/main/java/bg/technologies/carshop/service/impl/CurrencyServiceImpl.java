@@ -6,6 +6,7 @@ import bg.technologies.carshop.model.dto.MoneyDTO;
 import bg.technologies.carshop.model.entity.ExchangeRateEntity;
 import bg.technologies.carshop.repository.ExchangeRateRepository;
 import bg.technologies.carshop.service.CurrencyService;
+import bg.technologies.carshop.service.exception.ObjectNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -52,19 +53,20 @@ public class CurrencyServiceImpl implements CurrencyService {
         LOGGER.info("Rates refreshed...");
     }
 
-//    @Override
-//    public MoneyDTO convert(ConvertRequestDTO convertRequestDTO) {
-//        ExchangeRateEntity exchangeRateEntity = exchangeRateRepository
-//                .findById(convertRequestDTO.target())
-//                .orElseThrow(() -> new ObjectNotFoundException(
-//                        "Conversion to target " +
-//                                convertRequestDTO.target() + " not possible!"));
-//
-//        return new MoneyDTO(
-//                convertRequestDTO.target(),
-//                exchangeRateEntity.getRate().multiply(convertRequestDTO.amount())
-//        );
-//    }
+
+    @Override
+    public MoneyDTO convert(ConvertRequestDTO convertRequestDTO) {
+        ExchangeRateEntity exchangeRateEntity = exchangeRateRepository
+                .findById(convertRequestDTO.target())
+                .orElseThrow(() -> new ObjectNotFoundException(
+                        "Conversion to target " +
+                                convertRequestDTO.target() + " not possible!"));
+
+        return new MoneyDTO(
+                convertRequestDTO.target(),
+                exchangeRateEntity.getRate().multiply(convertRequestDTO.amount())
+        );
+    }
 
     private static Optional<BigDecimal> getExchangeRate(
             ExchangeRatesDTO exchangeRatesDTO,

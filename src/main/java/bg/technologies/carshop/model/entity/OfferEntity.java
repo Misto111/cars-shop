@@ -139,4 +139,5 @@ public class OfferEntity extends BaseEntity {
         this.seller = seller;
         return this;
     }
+
 }
