@@ -23,6 +23,7 @@ public class MonitoringServiceImpl implements MonitoringService {
 
   @Override
   public void logOfferSearch() {
+
     LOGGER.info("Offer search was performed.");
     offerSearches.increment();
   }

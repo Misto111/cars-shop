@@ -10,6 +10,7 @@ import bg.technologies.carshop.repository.OfferRepository;
 import bg.technologies.carshop.repository.UserRepository;
 import bg.technologies.carshop.service.MonitoringService;
 import bg.technologies.carshop.service.OfferService;
+import bg.technologies.carshop.service.aop.WarnIfExecutionExceeds;
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -61,16 +62,26 @@ public class OfferServiceImpl implements OfferService {
         return newOffer.getUuid();
     }
 
+    @WarnIfExecutionExceeds(
+            timeInMillis = 1000L
+    )
+
     @Override
     public Page<OfferSummaryDTO> getAllOffers(Pageable pageable) {
-        return offerRepository.findAll(pageable)
+
+        return offerRepository
+                .findAll(pageable)
                 .map(OfferServiceImpl::mapAsSummary);
     }
+
+    @WarnIfExecutionExceeds(
+            timeInMillis = 500L
+    )
 
     @Override
     public Optional<OfferDetailDTO> getOfferDetail(UUID offerUUID, UserDetails viewer) {
 
-        monitoringService.logOfferSearch();
+        //monitoringService.logOfferSearch();
 
         return offerRepository
                 .findByUuid(offerUUID)
