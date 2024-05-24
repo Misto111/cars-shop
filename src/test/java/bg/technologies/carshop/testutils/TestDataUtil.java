@@ -8,7 +8,6 @@ import bg.technologies.carshop.repository.ExchangeRateRepository;
 import bg.technologies.carshop.repository.OfferRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;

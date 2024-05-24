@@ -35,6 +35,10 @@ open.exchange.rates:
   symbols: EUR,BGN
   enabled: false
 
+google.recaptcha:
+  site: ${RECAPTCHA_SITE_KEY:test}
+  secret: ${RECAPTCHA_SITE_SECRET:test}
+
   #http://localhost:8080/api/currency/convert?target=EUR&amount=1000
 
 mail:

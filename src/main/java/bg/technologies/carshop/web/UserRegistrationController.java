@@ -1,11 +1,14 @@
 package bg.technologies.carshop.web;
 
+import bg.technologies.carshop.model.dto.ReCaptchaResponseDTO;
 import bg.technologies.carshop.model.dto.UserRegistrationDTO;
+import bg.technologies.carshop.service.ReCaptchaService;
 import bg.technologies.carshop.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RequestMapping("/users")
@@ -14,10 +17,13 @@ public class UserRegistrationController {
 
 
     private final UserService userService;
+    private final ReCaptchaService reCaptchaService;
 
-    public UserRegistrationController(UserService userService) {
+    public UserRegistrationController(UserService userService,
+                                      ReCaptchaService reCaptchaService) {
 
         this.userService = userService;
+        this.reCaptchaService = reCaptchaService;
     }
 
     @GetMapping("/register")
@@ -25,9 +31,19 @@ public class UserRegistrationController {
         return "auth-register";
     }
     @PostMapping("/register")
-    public String register(UserRegistrationDTO userRegistrationDTO) {
+    public String register(UserRegistrationDTO userRegistrationDTO,
+                           @RequestParam("g-recaptcha-response") String reCaptchaResponse) {
 
-        this.userService.registerUser(userRegistrationDTO);
+        boolean isBot = !reCaptchaService
+                .verify(reCaptchaResponse)
+                        .map(ReCaptchaResponseDTO::isSuccess)
+                                .orElse(false);
+
+        if (isBot) {
+            return "redirect:/";
+        }
+
+        userService.registerUser(userRegistrationDTO);
 
         return "redirect:/";
     }
