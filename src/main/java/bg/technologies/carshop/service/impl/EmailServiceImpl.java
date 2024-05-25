@@ -40,7 +40,7 @@ public class EmailServiceImpl implements EmailService {
             mimeMessageHelper.setSubject("Welcome to carshop!");
             mimeMessageHelper.setText(generateRegistrationEmailBody(userName, activationCode), true);
 
-           javaMailSender.send(mimeMessageHelper.getMimeMessage());
+          //javaMailSender.send(mimeMessageHelper.getMimeMessage());
 
         } catch (MessagingException e) {
             throw new RuntimeException(e);
